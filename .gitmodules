@@ -1,0 +1,3 @@
+[submodule "test-jenkins-repo"]
+	path = test-jenkins-repo
+	url = git@github.com:leahein/test-jenkins-repo.git
