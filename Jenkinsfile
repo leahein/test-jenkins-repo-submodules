@@ -4,7 +4,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building..'
+        sh "git submodule update --remote"
+
       }
     }
     stage('Test') {
