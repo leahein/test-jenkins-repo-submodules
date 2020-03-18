@@ -20,7 +20,7 @@ pipeline {
       }
       steps {
         echo "running tests with docker-compose..."
-        /* sh "exit 1" */
+        sh "exit 1"
       }
     }
     stage('Deploy') {
