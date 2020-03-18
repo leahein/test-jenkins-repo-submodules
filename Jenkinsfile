@@ -10,12 +10,16 @@ pipeline {
     stage('Build') {
       steps {
         sh "git submodule update --remote ${params.test-submodule}"
+
       }
     }
     stage('Test Failure') {
+      when {
+        expression { "${params.test-submodule}" == "test-jenkins-repo" }
+      }
       steps {
-        echo 'Testing..'
-        sh "exit 1"
+        echo "running tests with docker-compose..."
+        /* sh "exit 1" */
       }
     }
     stage('Deploy') {
