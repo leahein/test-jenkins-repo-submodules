@@ -4,19 +4,19 @@ pipeline {
     string(
       defaultValue: '',
       description: 'testing parameters',
-      name: 'test-submodule'
+      name: 'test_submodule'
     )
   }
   stages {
     stage('Build') {
       steps {
-        sh "git submodule update --remote ${params.test-submodule}"
+        sh "git submodule update --remote ${params.test_submodule}"
 
       }
     }
     stage('Test Failure') {
       when {
-        expression { "${params.test-submodule}" == "test-jenkins-repo" }
+        expression { "${params.test_submodule}" == "test-jenkins-repo" }
       }
       steps {
         echo "running tests with docker-compose..."
