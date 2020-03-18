@@ -6,6 +6,7 @@ pipeline {
       description: 'testing parameters',
       name: 'test-submodule'
     )
+  }
   stages {
     stage('Build') {
       steps {
