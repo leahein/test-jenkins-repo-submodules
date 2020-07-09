@@ -11,16 +11,9 @@ pipeline {
     stage('Build') {
       steps {
         sh "git submodule update --remote ${params.test_submodule}"
-
-      }
-    }
-    stage('Test Failure') {
-      when {
-        expression { "${params.test_submodule}" == "test-jenkins-repo" }
-      }
-      steps {
-        echo "running tests with docker-compose..."
-        sh "exit 1"
+        sh "git add ."
+        sh "git commit -m 'update submodules'"
+        sh "git push origin master"
       }
     }
     stage('Deploy') {
