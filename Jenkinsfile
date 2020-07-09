@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh "git submodule update --remote --init ${params.test_submodule}"
+        sh "git submodule update --remote ${params.test_submodule}"
       }
     }
     stage('Deploy') {
